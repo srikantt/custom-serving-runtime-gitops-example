@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 .EXPORT_ALL_VARIABLES:
 
-KUBECONFIG = /tmp/custom-serving-demo
+KUBECONFIG = /tmp/custom-serving-demo-gitops
 
 .PHONY: all
 all: bootstrap
@@ -31,8 +31,9 @@ already-have-rhods: $(KUBECONFIG)
 credentials: $(KUBECONFIG)
 	@if [ -f creds.env ]; then \
 		source creds.env; \
-		echo "Username: $$USER"; \
-		echo "Password: $$PASSWORD"; \
+		echo "-----------------------------------"; \
+		echo "OpenShift Username: $$USER"; \
+		echo "OpenShift Password: $$PASSWORD"; \
 		echo; \
 	fi
 	@if oc get route -n openshift-gitops openshift-gitops-server &>/dev/null; then \
@@ -40,4 +41,11 @@ credentials: $(KUBECONFIG)
 	fi
 	@if oc get route -n redhat-ods-applications rhods-dashboard &>/dev/null; then \
 		echo "RHODS: https://$$(oc get route -n redhat-ods-applications rhods-dashboard -ojsonpath='{.status.ingress[0].host}')"; \
+	fi
+	@if oc get route -n serving-demo-gitops minio-console &>/dev/null; then \
+		echo; \
+		echo "Minio Console : https://$$(oc get route -n serving-demo-gitops minio-console -ojsonpath='{.status.ingress[0].host}')"; \
+		echo "Minio User    : $$(oc get secret aws-connection-minio -n serving-demo-gitops -o jsonpath='{.data.AWS_ACCESS_KEY_ID}' | base64 -d) "; \
+		echo "Minio Password: $$(oc get secret aws-connection-minio -n serving-demo-gitops -o jsonpath='{.data.AWS_SECRET_ACCESS_KEY}' | base64 -d) "; \
+		echo; \
 	fi
