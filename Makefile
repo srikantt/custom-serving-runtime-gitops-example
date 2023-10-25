@@ -38,8 +38,11 @@ credentials: $(KUBECONFIG)
 	fi
 	@if oc get route -n openshift-gitops openshift-gitops-server &>/dev/null; then \
 		echo "GitOps: https://$$(oc get route -n openshift-gitops openshift-gitops-server -ojsonpath='{.status.ingress[0].host}')"; \
+		echo "  User: admin"; \
+		echo "  Pass: $$(oc get secret openshift-gitops-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)"; \
 	fi
 	@if oc get route -n redhat-ods-applications rhods-dashboard &>/dev/null; then \
+		echo "" ; \
 		echo "RHODS: https://$$(oc get route -n redhat-ods-applications rhods-dashboard -ojsonpath='{.status.ingress[0].host}')"; \
 	fi
 	@if oc get route -n serving-demo-gitops minio-console &>/dev/null; then \
