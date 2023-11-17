@@ -5,7 +5,7 @@ metadata:
   annotations:
     openshift.io/display-name: fraud1
     serving.kserve.io/deploymentMode: ModelMesh
-    serving.kserve.io/secretKey: aws-connection-minio
+    # serving.kserve.io/secretKey: aws-connection-minio
     argocd.argoproj.io/sync-wave: "3"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   labels:
