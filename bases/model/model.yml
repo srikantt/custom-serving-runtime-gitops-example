@@ -34,7 +34,7 @@ metadata:
   labels:
     name: fraud2
     opendatahub.io/dashboard: "true"
-  name: fraud
+  name: fraud2
 spec:
   predictor:
     model:
