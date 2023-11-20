@@ -17,4 +17,4 @@ patches:
   target:
     group: argoproj.io
     kind: Application
-    name: custom-serving
+    name: custom-serving-gitops
