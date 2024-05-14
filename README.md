@@ -33,7 +33,7 @@ Usage
 Clone this project (for example, into the terminal of your Jupyter Notebook)
 
 ```shell
-git clone https://github.com/rh-aiservices-bu/custom-serving-runtime-gitops-example.git
+git clone https://github.com/srikantt/custom-serving-runtime-gitops-example.git
 ```
 
 and get yourself into the right directory:
