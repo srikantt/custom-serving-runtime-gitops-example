@@ -4,7 +4,7 @@ kind: ServingRuntime
 metadata:
   annotations:
     enable-auth: "false"
-    enable-route: "false"
+    enable-route: "true"
     maxLoadingConcurrency: "2"
     opendatahub.io/template-display-name: Triton runtime 23.05
     opendatahub.io/template-name: triton-23.05-20230630
