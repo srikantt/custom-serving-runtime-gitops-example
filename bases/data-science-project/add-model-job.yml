@@ -32,7 +32,7 @@ spec:
         args:
         - -ec
         - |-
-          curl -LO https://github.com/srikantt/custom-serving-runtime-gitops-example/raw/main/model_files/onnx_fraud_detection/card.fraud.detection.onnx
+          curl -LO https://ai-on-openshift.io/odh-rhods/img-triton/card.fraud.detection.onnx
           cat << 'EOF' | python3
           filename = "card.fraud.detection.onnx"
           import boto3, os
