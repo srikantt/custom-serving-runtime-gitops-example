@@ -24,7 +24,3 @@ spec:
       storage:
         key: aws-connection-minio
         path: fraud/1/
-      runtime: triton
-      storage:
-        key: aws-connection-minio
-        path: fraud/1/
