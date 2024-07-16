@@ -33,8 +33,9 @@ spec:
         - -ec
         - |-
           curl -LO https://ai-on-openshift.io/odh-rhods/img-triton/card.fraud.detection.onnx
+          mv card.fraud.detection.onnx model.onnx
           cat << 'EOF' | python3
-          filename = "card.fraud.detection.onnx"
+          filename = "model.onnx"
           import boto3, os
           s3 = boto3.client("s3",
                             endpoint_url=os.getenv("AWS_S3_ENDPOINT"),
