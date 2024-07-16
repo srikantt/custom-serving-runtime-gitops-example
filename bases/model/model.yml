@@ -13,6 +13,8 @@ metadata:
   name: fraud1
 spec:
   predictor:
+    scaleTarget: 1
+    scaleMetric: concurrency
     model:
       modelFormat:
         name: onnx
@@ -36,6 +38,8 @@ metadata:
   name: fraud2
 spec:
   predictor:
+    scaleTarget: 1
+    scaleMetric: concurrency
     model:
       modelFormat:
         name: onnx
