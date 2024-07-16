@@ -15,6 +15,7 @@ spec:
   predictor:
     scaleTarget: 1
     scaleMetric: concurrency
+    minReplicas: 0
     model:
       modelFormat:
         name: onnx
@@ -40,6 +41,7 @@ spec:
   predictor:
     scaleTarget: 1
     scaleMetric: concurrency
+    minReplicas: 0
     model:
       modelFormat:
         name: onnx
