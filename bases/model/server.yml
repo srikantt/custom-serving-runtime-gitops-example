@@ -16,6 +16,10 @@ metadata:
     opendatahub.io/dashboard: "true"
   name: triton
 spec:
+  annotations:
+    prometheus.io/path: /metrics
+    prometheus.io/port: '8002'
+    prometheus.io/scrape: 'true'
   builtInAdapter:
     memBufferBytes: 134217728
     modelLoadingTimeoutMillis: 90000
